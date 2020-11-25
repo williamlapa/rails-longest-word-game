@@ -8,12 +8,14 @@ class GamesController < ApplicationController
   require 'json'
 
   def score
-    # start_time = Time.now
+    # @start_time = Time.now
     @attempt = params[:word]
-    # end_time = Time.now
+    # @end_time = Time.now
     @grid = params[:array].gsub(',', '').gsub('\/', '').gsub('"', '').gsub('[', '').gsub(']', '').gsub(' ', '')
     # raise
     # @score = run_game(attempt, grid, start_time, end_time)
+    @not_valid != english_word?(@attempt)
+    @not_included != included?(@attempt, @grid)
     @score = english_word?(@attempt) && included?(@attempt, @grid)
   end
 
