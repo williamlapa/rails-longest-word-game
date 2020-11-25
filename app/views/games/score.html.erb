@@ -1,0 +1,9 @@
+<h1>Result</h1>
+<div style="display: flex;">
+    <% if @score %>
+    <h2>Congratutations! <%= @attempt.upcase %> is avalid english word!</h2>
+    <% else %>
+    <h2>Sorry but <strong><%= @attempt.upcase %></strong> does not seem to be a valid English Word!</h2>
+    <% end %>
+</div>
+<a href="new">PLAY AGAIN!!!</a>
